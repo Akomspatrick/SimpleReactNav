@@ -1,5 +1,5 @@
 const assets = 
 { 
-    images: { logo:require('./images/logoblack.png')}};
+    images: { logo: require('./logoblack.jpg') }
+};
     export  default assets;
-    
