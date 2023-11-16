@@ -46,7 +46,7 @@ const SidebarItemCollapse = ({ item }: Props) => {
           <ListItemText
             disableTypography
             primary={
-              <Typography sx={{color:colorConfigs.topbar}}>
+              <Typography sx={{color:colorConfigs.sidebar}}>
                 {item.sidebarProps.displayText}
               </Typography>
             }

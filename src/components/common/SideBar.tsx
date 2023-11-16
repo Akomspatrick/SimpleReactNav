@@ -5,8 +5,19 @@ import assets from "../../assets/images";
 import sizeConfig from "../configs/sizeConfig";
 import SidebarItemCollapse from "./SidebarItemCollapse";
 import SidebarItem from "./SidebarItem";
+import { useEffect, useState } from "react";
+import { RouteType } from "../../routes/config";
 
 const Sidebar = () => {
+  const [newAppRoutes, UseNewAppRoutes] = useState<RouteType[]>(appRoutes);
+
+  useEffect(() => {
+    appRoutes.map((route, index) => {
+      if (route?.child) {
+        UseNewAppRoutes(route.child);
+      }
+    }, []);
+  });
   return (
     <Drawer
       variant="permanent"
@@ -18,21 +29,17 @@ const Sidebar = () => {
           boxSizing: "border-box",
           borderRight: "0px",
           backgroundColor: colorConfigs.sidebar.bg,
-          color: colorConfigs.sidebar.color
-        }
+          color: colorConfigs.sidebar.color,
+        },
       }}
     >
       <List disablePadding>
         <Toolbar sx={{ marginBottom: "20px" }}>
-          <Stack
-            sx={{ width: "100%" }}
-            direction="row"
-            justifyContent="center"
-          >
+          <Stack sx={{ width: "100%" }} direction="row" justifyContent="center">
             <Avatar src={assets.images.logo} />
           </Stack>
         </Toolbar>
-        {appRoutes.map((route, index) => (
+        {newAppRoutes.map((route, index) =>
           route.sidebarProps ? (
             route.child ? (
               <SidebarItemCollapse item={route} key={index} />
@@ -40,7 +47,7 @@ const Sidebar = () => {
               <SidebarItem item={route} key={index} />
             )
           ) : null
-        ))}
+        )}
       </List>
     </Drawer>
   );

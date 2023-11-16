@@ -20,7 +20,182 @@ import { ComponentPageLayOut } from "../pages/component/ComponentPageLayOut";
 import DocumentationPage from "../pages/documentation/DocumentationPage";
 import InstallationPage from "../pages/installation/InstallationPage";
 
+
 const appRoutes: RouteType[] = [
+  {
+    index: true,
+    element: <HomePage />,
+    state: "home",
+    child: [
+
+      {
+        index: true,
+        element: <HomePage />,
+        state: "home"
+      },
+      {
+        path: "/installation",
+        element: <InstallationPage />,
+        state: "installation",
+        sidebarProps: {
+          displayText: "About",
+          icon: <FileDownloadOutlinedIcon />
+        }
+      },
+      {
+        path: "/dashboard",
+        element: <DashBoardPageLayOut />,
+        state: "dashboard",
+        sidebarProps: {
+          displayText: "Model Management",
+          icon: <DashboardOutlinedIcon />
+        },
+        child: [
+          {
+            index: true,
+            element: <DashboardIndex />,
+            state: "dashboard.index"
+          },
+          {
+            path: "/dashboard/default",
+            element: <DEfaultPage />,
+            state: "dashboard.default",
+            sidebarProps: {
+              displayText: "New"
+            },
+          },
+          {
+            path: "/dashboard/analytics",
+            element: <AnalyticsPage />,
+            state: "dashboard.analytics",
+            sidebarProps: {
+              displayText: "Revision"
+            }
+          },
+          {
+            path: "/dashboard/saas",
+            element: <SaasPage />,
+            state: "dashboard.saas",
+            sidebarProps: {
+              displayText: "Tools"
+            }
+          }
+        ]
+        },
+      
+      {
+        path: "/component",
+        element: <ComponentPageLayOut />,
+        state: "component",
+        sidebarProps: {
+          displayText: "Production Management",
+          icon: <AppsOutlinedIcon />
+        },
+        child: [
+          {
+            path: "/component/alert",
+            element: <AlertPage />,
+            state: "component.alert",
+            sidebarProps: {
+              displayText: "Simple Assembly"
+            },
+          },
+          {
+            path: "/component/button",
+            element: <ButtonPage />,
+            state: "component.button",
+            sidebarProps: {
+              displayText: "Inspection"
+            }
+          }
+          ,
+          {
+            path: "/component/button",
+            element: <ButtonPage />,
+            state: "component.button",
+            sidebarProps: {
+              displayText: "Auto Verification"
+            }
+          }
+          ,
+          {
+            path: "/component/button",
+            element: <ButtonPage />,
+            state: "component.button",
+            sidebarProps: {
+              displayText: "Manual Verification"
+            }
+          }
+          ,
+          {
+            path: "/component/button",
+            element: <ButtonPage />,
+            state: "component.button",
+            sidebarProps: {
+              displayText: "Labelling"
+            }
+          }
+          ,
+          {
+            path: "/component/button",
+            element: <ButtonPage />,
+            state: "component.button",
+            sidebarProps: {
+              displayText: "Shipping"
+            }
+          }
+        ]
+      },
+      {
+        path: "/component",
+        element: <ComponentPageLayOut />,
+        state: "component",
+        sidebarProps: {
+          displayText: "Registration Management",
+          icon: <AppsOutlinedIcon />
+        },
+        child: [
+          {
+            path: "/component/alert",
+            element: <AlertPage />,
+            state: "component.alert",
+            sidebarProps: {
+              displayText: "Create User"
+            },
+          },
+          {
+            path: "/component/button",
+            element: <ButtonPage />,
+            state: "component.button",
+            sidebarProps: {
+              displayText: "Print Barcode ID Card"
+            }
+          }
+        ]
+      },
+      {
+        path: "/documentation",
+        element: <DocumentationPage />,
+        state: "documentation",
+        sidebarProps: {
+          displayText: "Tracking",
+          icon: <ArticleOutlinedIcon />
+        }
+      },
+      {
+        path: "/changelog",
+        element: <ChangeLogPage />,
+        state: "changelog",
+        sidebarProps: {
+          displayText: "Report",
+          icon: <FormatListBulletedOutlinedIcon />
+        }
+      }
+    ]
+  },
+
+];
+const appRoutes2: RouteType[] = [
   {
     index: true,
     element: <HomePage />,
@@ -31,7 +206,7 @@ const appRoutes: RouteType[] = [
     element: <InstallationPage />,
     state: "installation",
     sidebarProps: {
-      displayText: "Installation",
+      displayText: "About",
       icon: <FileDownloadOutlinedIcon />
     }
   },
@@ -40,7 +215,7 @@ const appRoutes: RouteType[] = [
     element: <DashBoardPageLayOut />,
     state: "dashboard",
     sidebarProps: {
-      displayText: "Dashboard",
+      displayText: "Model Management",
       icon: <DashboardOutlinedIcon />
     },
     child: [
@@ -54,7 +229,7 @@ const appRoutes: RouteType[] = [
         element: <DEfaultPage />,
         state: "dashboard.default",
         sidebarProps: {
-          displayText: "Default"
+          displayText: "New"
         },
       },
       {
@@ -62,7 +237,7 @@ const appRoutes: RouteType[] = [
         element: <AnalyticsPage />,
         state: "dashboard.analytics",
         sidebarProps: {
-          displayText: "Analytic"
+          displayText: "Revision"
         }
       },
       {
@@ -70,7 +245,7 @@ const appRoutes: RouteType[] = [
         element: <SaasPage />,
         state: "dashboard.saas",
         sidebarProps: {
-          displayText: "Saas"
+          displayText: "Tools"
         }
       }
     ]
@@ -81,7 +256,7 @@ const appRoutes: RouteType[] = [
     element: <ComponentPageLayOut />,
     state: "component",
     sidebarProps: {
-      displayText: "Components",
+      displayText: "Production Management",
       icon: <AppsOutlinedIcon />
     },
     child: [
@@ -90,7 +265,7 @@ const appRoutes: RouteType[] = [
         element: <AlertPage />,
         state: "component.alert",
         sidebarProps: {
-          displayText: "Alert"
+          displayText: "Simple Assembly"
         },
       },
       {
@@ -98,7 +273,70 @@ const appRoutes: RouteType[] = [
         element: <ButtonPage />,
         state: "component.button",
         sidebarProps: {
-          displayText: "Button"
+          displayText: "Inspection"
+        }
+      }
+      ,
+      {
+        path: "/component/button",
+        element: <ButtonPage />,
+        state: "component.button",
+        sidebarProps: {
+          displayText: "Auto Verification"
+        }
+      }
+      ,
+      {
+        path: "/component/button",
+        element: <ButtonPage />,
+        state: "component.button",
+        sidebarProps: {
+          displayText: "Manual Verification"
+        }
+      }
+      ,
+      {
+        path: "/component/button",
+        element: <ButtonPage />,
+        state: "component.button",
+        sidebarProps: {
+          displayText: "Labelling"
+        }
+      }
+      ,
+      {
+        path: "/component/button",
+        element: <ButtonPage />,
+        state: "component.button",
+        sidebarProps: {
+          displayText: "Shipping"
+        }
+      }
+    ]
+  },
+  {
+    path: "/component",
+    element: <ComponentPageLayOut />,
+    state: "component",
+    sidebarProps: {
+      displayText: "Registration Management",
+      icon: <AppsOutlinedIcon />
+    },
+    child: [
+      {
+        path: "/component/alert",
+        element: <AlertPage />,
+        state: "component.alert",
+        sidebarProps: {
+          displayText: "Create User"
+        },
+      },
+      {
+        path: "/component/button",
+        element: <ButtonPage />,
+        state: "component.button",
+        sidebarProps: {
+          displayText: "Print Barcode ID Card"
         }
       }
     ]
@@ -108,7 +346,7 @@ const appRoutes: RouteType[] = [
     element: <DocumentationPage />,
     state: "documentation",
     sidebarProps: {
-      displayText: "Documentation",
+      displayText: "Tracking",
       icon: <ArticleOutlinedIcon />
     }
   },
@@ -117,7 +355,7 @@ const appRoutes: RouteType[] = [
     element: <ChangeLogPage />,
     state: "changelog",
     sidebarProps: {
-      displayText: "Changelog",
+      displayText: "Report",
       icon: <FormatListBulletedOutlinedIcon />
     }
   }
